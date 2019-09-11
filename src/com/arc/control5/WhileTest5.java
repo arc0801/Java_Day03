@@ -15,7 +15,7 @@ public class WhileTest5 {
 		int id = 1234;
 		int pw = 5678;
 		boolean check = true;
-		int result = 0;
+		
 
 		while(check) {
 			System.out.println("1. 로그인하시겠습니까?");
@@ -30,14 +30,14 @@ public class WhileTest5 {
 
 				if(yId==id && yPw==pw) {
 					System.out.println("로그인 성공");
-					result = 1;
+					
 					break;
 				}else {
 					System.out.println("로그인 실패");
 				}
 			}else {
 				System.out.println("프로그램 종료");
-				break;
+				check = false;
 			}//if
 		}//while
 
@@ -62,34 +62,38 @@ public class WhileTest5 {
 		//렙업시 계속 사냥할거냐? 종료할거냐?
 
 		int a = 0;
-		int sum = 0;
+		int gold = 0;
 		
-		if(result==1) {
+		if(check) {
 			System.out.println("Game Start!");
 
 			
 				for(int i=1;i<15;i++) {
-					for(int j=1;j<43;j++) {
+					for(int j=1;j<=i*3;j++) {
 						System.out.println(j+"마리 사냥 성공");
+						
 						if(j==i*3) {
 							System.out.println(i+1+" Level Up!!!");
-							
+							/*if(i%5==0){
+							* int g = level/5*1000;
+							* 
+							*/
 							if(i==4) {
 								a = 1000;
-								sum = 0+a;
+								gold = gold+a;
 								System.out.println(a+" gold 지급");
 							}else if(i==9) {
 								a = 2000;
-								sum = sum+a;
+								gold = gold+a;
 								System.out.println(a+" gold 지급");
 							}else if(i==14) {
 								a = 3000;
-								sum = sum+a;
+								gold = gold+a;
 								System.out.println(a+" gold 지급");
 								
 								System.out.println("만렙 달성");
 								
-								System.out.println(sum+" gold 소지중");
+								System.out.println(gold+" gold 소지중");
 							}
 							
 							System.out.println("1. 사냥을 계속 하시겠습니까?");
